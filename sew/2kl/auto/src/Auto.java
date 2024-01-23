@@ -10,4 +10,8 @@ public class Auto {
         this.caballostärke = caballostärke;
         this.räder = räder;
     }
+    @Override
+    public String toString(){
+        return "Marke:"+marke+" Farbe:"+farbe+" Pferdestärke:"+caballostärke+" Räder:"+räder;
+    }
 }
