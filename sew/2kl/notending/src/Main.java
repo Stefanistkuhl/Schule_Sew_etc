@@ -12,6 +12,13 @@ public class Main {
             System.out.println("note");
             intnote = sc.nextInt();
             noten[i]=new Notenverwaltung(fach_input,intnote);
+            /*
+            alternativ geht auch und wär auch besser
+            Notenverwaltung n = new Notenverwaltung();
+            n.fach=sc.next();
+            n.note=sc.nextInt();
+            noten[i]=n;
+             */
         }
         int fach_eingabe_note = 0;
         int durchschnitt = durchschnitt(noten);
