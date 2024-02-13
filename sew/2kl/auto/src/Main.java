@@ -10,10 +10,10 @@ public class Main {
         Auto autos[] = new Auto[länge];
         for(int i=0; i<länge;i++){
             Auto a = new Auto();
-            a.marke = sc.next();
-            a.farbe = sc.next();
-            a.caballostärke = sc.nextInt();
-            a.räder = sc.nextInt();
+            a.setMarke(sc.next());
+            a.setFarbe(sc.next());
+            a.setCaballostärke(sc.nextInt());
+            a.setRäder(sc.nextInt());
             autos[i]=a;
 
         }
@@ -26,11 +26,11 @@ public class Main {
         }
     }
     public static int schnellstes(Auto[] arr){
-        int schnell=arr[0].caballostärke;
+        int schnell= arr[0].getCaballostärke();
         int schnell_index=0;
         for(int i=0; i<arr.length;i++){
-            if(schnell<arr[i].caballostärke){
-                schnell = arr[i].caballostärke;
+            if(schnell< arr[i].getCaballostärke()){
+                schnell = arr[i].getCaballostärke();
                 schnell_index = i;
             }
         }
