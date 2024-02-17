@@ -1,6 +1,6 @@
 public class Rechteck {
-    private int länge;
-    private int breite;
+    private double länge;
+    private double breite;
     public  Rechteck(){
         this.setLänge(getLänge());
         this.setBreite(getLänge());
@@ -10,22 +10,22 @@ public class Rechteck {
         return "länge:"+this.getLänge()+" breite:"+this.getBreite();
     }
 
-    public int Fläche(){
+    public double Fläche(){
         return this.getLänge()*this.getBreite();
     }
-    public int umfang(){
+    public double umfang(){
         return 2*(this.getLänge()+this.getBreite());
     }
-    public int getLänge(){
+    public double getLänge(){
         return länge;
     }
-    public int setLänge(double radius){
+    public double setLänge(double länge){
         return this.länge = länge;
     }
-    public int getBreite(){
+    public double getBreite(){
         return breite;
     }
-    public int setBreite(double radius){
-        return this.länge = breite;
+    public double setBreite(double breite){
+        return this.breite = breite;
     }
 }
