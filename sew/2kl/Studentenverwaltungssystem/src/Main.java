@@ -9,7 +9,7 @@ public class Main {
         String entscheidung = "";
         int suche = 0;
         ArrayList<Studenten> stundenten_list = new ArrayList();
-
+        stundenten_list.add(new Studenten("stefiii",69,17,"idk"));
 
         while(true){
             System.out.println("typ adden y/n/q");
