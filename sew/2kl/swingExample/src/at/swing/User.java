@@ -8,20 +8,15 @@ public class User {
         this.password = password;
         this.username = username;
     }
-
     public String getUsername(){
         return this.username;
     }
     public String getPassword(){
         return this.username;
     }
-    public void setUsername(){
-        this.username = username;
+    @Override
+    public String toString(){
+       return this.username + " " + this.password;
     }
-    public void setPassword(){
-        this.password = password;
-    }
-
-
 
 }
