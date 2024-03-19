@@ -37,8 +37,9 @@ public class oida {
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                list.add(new User(textField1.getText(),passwordField1.getText()));
-                userbase_register(list);
+                User eingabe = (new User(textField1.getText(),passwordField1.getText()));
+                list.add(eingabe);
+                userbase_register(list, eingabe);
             }
         });
     }
@@ -49,13 +50,20 @@ public class oida {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
-    public static ArrayList<User> userbase_register (ArrayList<User> input){
-        ArrayList<ArrayList<User>> crazydatenbank = new ArrayList<>();
-        crazydatenbank.add(input);
-        for (int i = 0; i<crazydatenbank.size();i+=1){
-            System.out.println(crazydatenbank.toString());
+    public static ArrayList<User> userbase_register (ArrayList<User> db,User input){
+
+        for (int i = 0; i<db.size();i+=1){
+
+            if ((input.getUsername().equals(db.get(i).getUsername()))&&(input.getPassword().equals(db.get(i).getPassword()))){
+                showMessageDialog(null,"Schon registriert idi");
+            }else {
+                db.add(input);
+            }
         }
-        return input;
+        for (int i = 0; i<db.size();i+=1){
+            System.out.println(db.toString());
+        }
+        return db;
     }
 
     public static Boolean user_check(ArrayList<User> db, User input){
