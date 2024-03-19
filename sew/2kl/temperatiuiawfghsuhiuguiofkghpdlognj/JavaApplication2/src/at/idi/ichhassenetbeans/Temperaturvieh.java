@@ -33,6 +33,8 @@ public class Temperaturvieh extends javax.swing.JFrame {
         AusgabeZurEingabe = new javax.swing.JButton();
         CelsiusZuFahrenheit = new javax.swing.JButton();
         FahrenheitZuCelsius = new javax.swing.JButton();
+        einheiteenanzeiger1 = new javax.swing.JLabel();
+        einheiteenanzeiger2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,13 +84,6 @@ public class Temperaturvieh extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(output)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -101,14 +96,32 @@ public class Temperaturvieh extends javax.swing.JFrame {
                         .addComponent(KelvinZuCelsius)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(AusgabeZurEingabe))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(output)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(einheiteenanzeiger2)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(einheiteenanzeiger1)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(74, 74, 74)
-                .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(einheiteenanzeiger1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(output)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(output)
+                    .addComponent(einheiteenanzeiger2))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CelsiusZuKelvin)
@@ -130,6 +143,8 @@ public class Temperaturvieh extends javax.swing.JFrame {
         tmp = tmp + 273.15;
         String ergebnis = Double.toString(tmp);
         output.setText(ergebnis);
+        einheiteenanzeiger1.setText("C");
+        einheiteenanzeiger2.setText("K");
     }//GEN-LAST:event_CelsiusZuKelvinActionPerformed
 
     private void KelvinZuCelsiusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KelvinZuCelsiusActionPerformed
@@ -138,14 +153,19 @@ public class Temperaturvieh extends javax.swing.JFrame {
         tmp = tmp - 273.15;
         String ergebnis = Double.toString(tmp);
         output.setText(ergebnis);
+        einheiteenanzeiger1.setText("K");
+        einheiteenanzeiger2.setText("C");
     }//GEN-LAST:event_KelvinZuCelsiusActionPerformed
 
     private void AusgabeZurEingabeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AusgabeZurEingabeActionPerformed
         String output_text = output.getText();
         String input_text = input.getText();
+        String input_einheit = einheiteenanzeiger1.getText();
+        String output_einheit = einheiteenanzeiger2.getText();
         input.setText(output_text);
         output.setText(input_text);
-        
+        einheiteenanzeiger2.setText(input_einheit);
+        einheiteenanzeiger1.setText(output_einheit);
     }//GEN-LAST:event_AusgabeZurEingabeActionPerformed
 
     private void CelsiusZuFahrenheitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CelsiusZuFahrenheitActionPerformed
@@ -154,6 +174,8 @@ public class Temperaturvieh extends javax.swing.JFrame {
         tmp = tmp * 1.8 + 32;
         String ergebnis = Double.toString(tmp);
         output.setText(ergebnis);
+        einheiteenanzeiger1.setText("C");
+        einheiteenanzeiger2.setText("F");
     }//GEN-LAST:event_CelsiusZuFahrenheitActionPerformed
 
     private void FahrenheitZuCelsiusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FahrenheitZuCelsiusActionPerformed
@@ -162,6 +184,8 @@ public class Temperaturvieh extends javax.swing.JFrame {
         tmp = (tmp-32)/1.8;
         String ergebnis = Double.toString(tmp);
         output.setText(ergebnis);
+        einheiteenanzeiger1.setText("F");
+        einheiteenanzeiger2.setText("C");
     }//GEN-LAST:event_FahrenheitZuCelsiusActionPerformed
 
     public static void main(String args[]) {
@@ -202,6 +226,8 @@ public class Temperaturvieh extends javax.swing.JFrame {
     private javax.swing.JButton CelsiusZuKelvin;
     private javax.swing.JButton FahrenheitZuCelsius;
     private javax.swing.JButton KelvinZuCelsius;
+    private javax.swing.JLabel einheiteenanzeiger1;
+    private javax.swing.JLabel einheiteenanzeiger2;
     private javax.swing.JTextField input;
     private javax.swing.JLabel output;
     // End of variables declaration//GEN-END:variables
