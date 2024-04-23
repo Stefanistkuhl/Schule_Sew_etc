@@ -62,7 +62,7 @@ public class gfbdk {
                     inksoben.setText("0");
                     dransein = false;
                     spieler.setText("Spieler 1 ist dran");
-                    top.set(1, 2);
+                    top.set(0, 2);
                     checkwin();
                 }
             }
@@ -75,13 +75,13 @@ public class gfbdk {
                     oben.setText("X");
                     spieler.setText("Spieler 2 ist dran");
                     dransein = true;
-                    top.set(2, 1);
+                    top.set(1, 1);
                     checkwin();
                 } else {
                     oben.setText("0");
                     dransein = false;
                     spieler.setText("Spieler 1 ist dran");
-                    top.add(2);
+                    top.set(1, 2);
                     checkwin();
                 }
             }
@@ -94,13 +94,13 @@ public class gfbdk {
                     obenrechts.setText("X");
                     spieler.setText("Spieler 2 ist dran");
                     dransein = true;
-                    top.set(0, 1);
+                    top.set(2, 1);
                     checkwin();
                 } else {
                     obenrechts.setText("0");
                     dransein = false;
                     spieler.setText("Spieler 1 ist dran");
-                    top.set(1, 2);
+                    top.set(2, 2);
                     checkwin();
                 }
             }
@@ -112,13 +112,13 @@ public class gfbdk {
                     mittelinks.setText("X");
                     spieler.setText("Spieler 2 ist dran");
                     dransein = true;
-                    mid.set(1, 1);
+                    mid.set(0, 1);
                     checkwin();
                 } else {
                     mittelinks.setText("0");
                     dransein = false;
                     spieler.setText("Spieler 1 ist dran");
-                    mid.set(2, 2);
+                    mid.set(0, 2);
                     checkwin();
                 }
 
@@ -131,7 +131,7 @@ public class gfbdk {
                     mitte.setText("X");
                     spieler.setText("Spieler 2 ist dran");
                     dransein = true;
-                    mid.set(0, 1);
+                    mid.set(1, 1);
                     checkwin();
                 } else {
                     mitte.setText("0");
@@ -188,13 +188,13 @@ public class gfbdk {
                     mitteunten.setText("X");
                     spieler.setText("Spieler 2 ist dran");
                     dransein = true;
-                    bottom.set(0, 1);
+                    bottom.set(1, 1);
                     checkwin();
                 } else {
                     mitteunten.setText("0");
                     dransein = false;
                     spieler.setText("Spieler 1 ist dran");
-                    bottom.set(0, 2);
+                    bottom.set(1, 2);
                     checkwin();
                 }
 
@@ -207,13 +207,13 @@ public class gfbdk {
                     rechtsunten.setText("X");
                     spieler.setText("Spieler 2 ist dran");
                     dransein = true;
-                    bottom.set(1, 1);
+                    bottom.set(2, 1);
                     checkwin();
                 } else {
                     rechtsunten.setText("0");
                     dransein = false;
                     spieler.setText("Spieler 1 ist dran");
-                    bottom.set(1, 2);
+                    bottom.set(2, 2);
                     checkwin();
                 }
 
