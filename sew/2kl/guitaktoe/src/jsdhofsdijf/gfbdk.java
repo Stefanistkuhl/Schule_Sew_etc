@@ -1,6 +1,8 @@
 package jsdhofsdijf;
 
 import javax.swing.*;
+
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -19,6 +21,7 @@ public class gfbdk {
     private JButton mitteunten;
     private JPanel panel1;
     private JLabel spieler;
+    private JButton testButton;
 
     boolean dransein = false;
 
@@ -147,7 +150,7 @@ public class gfbdk {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!dransein) {
-                    obenrechts.setText("X");
+                    mitterechts.setText("X");
                     spieler.setText("Spieler 2 ist dran");
                     dransein = true;
                     mid.set(2, 1);
@@ -225,6 +228,7 @@ public class gfbdk {
         JFrame frame = new JFrame("oida");
         frame.setContentPane((new gfbdk().panel1));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(690, 690);
         frame.setVisible(true);
     }
 
@@ -232,25 +236,153 @@ public class gfbdk {
         spieler.setText("Spieler 1 ist dran");
         dransein = false;
         inksoben.setText("");
+        inksoben.setBackground(null);
         oben.setText("");
+        oben.setBackground(null);
         obenrechts.setText("");
+        obenrechts.setBackground(null);
         mittelinks.setText("");
+        mittelinks.setBackground(null);
         mitte.setText("");
+        mitte.setBackground(null);
         mitterechts.setText("");
+        mitterechts.setBackground(null);
         rechtsunten.setText("");
+        rechtsunten.setBackground(null);
         mitteunten.setText("");
+        mitteunten.setBackground(null);
         linksunten.setText("");
+        linksunten.setBackground(null);
         top.clear();
         mid.clear();
         bottom.clear();
         bottom.add(0);
         bottom.add(0);
+        bottom.add(0);
         mid.add(0);
         mid.add(0);
         mid.add(0);
         top.add(0);
         top.add(0);
         top.add(0);
+    }
+
+    public void pink(int sieger) {
+        System.out.println("oida");
+        // erste reihe waagrecht
+        if (top.get(0) == 1 && top.get(1) == 1 && top.get(2) == 1) {
+            inksoben.setBackground(Color.PINK);
+            oben.setBackground(Color.PINK);
+            obenrechts.setBackground(Color.PINK);
+        }
+        // zweite reihe waagrecht
+        if (mid.get(0) == 1 && mid.get(1) == 1 && mid.get(2) == 1) {
+            mitterechts.setBackground(Color.PINK);
+            mitte.setBackground(Color.PINK);
+            mittelinks.setBackground(Color.PINK);
+
+        }
+        // dritte reihe waagrecht
+        if (bottom.get(0) == 1 && bottom.get(1) == 1 && bottom.get(2) == 1) {
+            linksunten.setBackground(Color.PINK);
+            mitteunten.setBackground(Color.PINK);
+            rechtsunten.setBackground(Color.PINK);
+
+        }
+        // erste reihe senktrecht
+        if (top.get(0) == 1 && mid.get(0) == 1 && bottom.get(0) == 1) {
+            inksoben.setBackground(Color.PINK);
+            linksunten.setBackground(Color.PINK);
+            mittelinks.setBackground(Color.PINK);
+
+        }
+        // zweite reihe senktrecht
+        if (top.get(1) == 1 && mid.get(1) == 1 && bottom.get(1) == 1) {
+            oben.setBackground(Color.PINK);
+            mitte.setBackground(Color.PINK);
+            mitteunten.setBackground(Color.PINK);
+
+        }
+        // dritte reihe senktrecht
+        if (top.get(2) == 1 && mid.get(2) == 1 && bottom.get(2) == 1) {
+            obenrechts.setBackground(Color.PINK);
+            mitterechts.setBackground(Color.PINK);
+            rechtsunten.setBackground(Color.PINK);
+
+        }
+        // erste diagonale
+        if (top.get(0) == 1 && mid.get(1) == 1 && bottom.get(2) == 1) {
+            inksoben.setBackground(Color.PINK);
+            mitte.setBackground(Color.PINK);
+            rechtsunten.setBackground(Color.PINK);
+
+        }
+        // zweite diagonale
+        if (top.get(2) == 1 && mid.get(1) == 1 && bottom.get(0) == 1) {
+            obenrechts.setBackground(Color.PINK);
+            mitte.setBackground(Color.PINK);
+            linksunten.setBackground(Color.PINK);
+
+        }
+    }
+
+    public void blau(int sieger) {
+        System.out.println("oida");
+        // erste reihe waagrecht
+        if (top.get(0) == 2 && top.get(1) == 2 && top.get(2) == 2) {
+            inksoben.setBackground(Color.BLUE);
+            oben.setBackground(Color.BLUE);
+            obenrechts.setBackground(Color.BLUE);
+        }
+        // zweite reihe waagrecht
+        if (mid.get(0) == 2 && mid.get(1) == 2 && mid.get(2) == 2) {
+            mitterechts.setBackground(Color.BLUE);
+            mitte.setBackground(Color.BLUE);
+            mittelinks.setBackground(Color.BLUE);
+
+        }
+        // dritte reihe waagrecht
+        if (bottom.get(0) == 2 && bottom.get(1) == 2 && bottom.get(2) == 2) {
+            linksunten.setBackground(Color.BLUE);
+            mitteunten.setBackground(Color.BLUE);
+            rechtsunten.setBackground(Color.BLUE);
+
+        }
+        // erste reihe senktrecht
+        if (top.get(0) == 2 && mid.get(0) == 2 && bottom.get(0) == 2) {
+            inksoben.setBackground(Color.BLUE);
+            linksunten.setBackground(Color.BLUE);
+            mittelinks.setBackground(Color.BLUE);
+
+        }
+        // zweite reihe senktrecht
+        if (top.get(1) == 2 && mid.get(1) == 2 && bottom.get(1) == 2) {
+            oben.setBackground(Color.BLUE);
+            mitte.setBackground(Color.BLUE);
+            mitteunten.setBackground(Color.BLUE);
+
+        }
+        // dritte reihe senktrecht
+        if (top.get(2) == 2 && mid.get(2) == 2 && bottom.get(2) == 2) {
+            obenrechts.setBackground(Color.BLUE);
+            mitterechts.setBackground(Color.BLUE);
+            rechtsunten.setBackground(Color.BLUE);
+
+        }
+        // erste diagonale
+        if (top.get(0) == 2 && mid.get(1) == 2 && bottom.get(2) == 2) {
+            inksoben.setBackground(Color.BLUE);
+            mitte.setBackground(Color.BLUE);
+            rechtsunten.setBackground(Color.BLUE);
+
+        }
+        // zweite diagonale
+        if (top.get(2) == 2 && mid.get(1) == 1 && bottom.get(0) == 2) {
+            obenrechts.setBackground(Color.BLUE);
+            mitte.setBackground(Color.BLUE);
+            linksunten.setBackground(Color.BLUE);
+
+        }
     }
 
     public int checkwin() {
@@ -260,26 +392,40 @@ public class gfbdk {
                 || (bottom.get(0) == 1 && bottom.get(1) == 1 && bottom.get(2) == 1)
                 || ((top.get(0) == 1 && mid.get(0) == 1 && bottom.get(0) == 1)
                         || ((top.get(1) == 1 && mid.get(1) == 1 && bottom.get(1) == 1)
-                                || (top.get(2) == 1 && mid.get(2) == 1 && bottom.get(2) == 1))
-                        || (top.get(0) == 1 && mid.get(1) == 1 && bottom.get(2) == 1)
-                        || (top.get(2) == 1 && mid.get(1) == 1 && bottom.get(0) == 1))) {
+                                || (top.get(2) == 1 && mid.get(2) == 1 && bottom.get(2) == 1)
+                                || (top.get(0) == 1 && mid.get(1) == 1 && bottom.get(2) == 1)
+                                || (top.get(2) == 1 && mid.get(1) == 1 && bottom.get(0) == 1)))) {
             ergebnis = 1;
-            System.out.println(ergebnis);
+            pink(ergebnis);
             spieler.setText("Spieler 1 hat gewonnen");
+            int ka = JOptionPane.showConfirmDialog(null, "Spieler 1 hat gewonnen! Willst du das Spiel zurücksetzen?");
+            if (ka == 0) {
+                zrk();
+            }
         } else if ((top.get(0) == 2 && top.get(1) == 2 && top.get(2) == 2)
                 || (mid.get(0) == 2 && mid.get(1) == 2 && mid.get(2) == 2)
                 || (bottom.get(0) == 2 && bottom.get(1) == 2 && bottom.get(2) == 2)
                 || ((top.get(0) == 2 && mid.get(0) == 2 && bottom.get(0) == 2)
                         || ((top.get(1) == 2 && mid.get(1) == 2 && bottom.get(1) == 2)
-                                || (top.get(2) == 2 && mid.get(2) == 2 && bottom.get(2) == 2))
-                        || (top.get(0) == 2 && mid.get(1) == 2 && bottom.get(2) == 2)
-                        || (top.get(2) == 2 && mid.get(1) == 2 && bottom.get(0) == 2))) {
+                                || (top.get(2) == 2 && mid.get(2) == 2 && bottom.get(2) == 2)
+                                || (top.get(0) == 2 && mid.get(1) == 2 && bottom.get(2) == 2)
+                                || (top.get(2) == 2 && mid.get(1) == 2 && bottom.get(0) == 2)))) {
             ergebnis = 2;
-            System.out.println(ergebnis);
+            blau(ergebnis);
             spieler.setText("Spieler 2 hat gewonnen");
+            int ka = JOptionPane.showConfirmDialog(null, "Spieler 2 hat gewonnen! Willst du das Spiel zurücksetzen?");
+            if (ka == 0) {
+                zrk();
+            }
+        } else if ((!top.contains(0) && !mid.contains(0) && !bottom.contains(0))) {
+            ergebnis = 3;
+            spieler.setText("Unentschiden");
+            int ka = JOptionPane.showConfirmDialog(null, "Unentschieden Spiel zurücksetzen?");
+            if (ka == 0) {
+                zrk();
+            }
         } else {
             ergebnis = 0;
-            System.out.println(ergebnis);
         }
         return ergebnis;
     }
