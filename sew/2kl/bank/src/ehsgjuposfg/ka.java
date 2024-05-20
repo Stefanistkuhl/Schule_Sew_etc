@@ -15,6 +15,10 @@ public class ka {
     private JLabel kontostand;
     private JPanel panel1;
     private JButton a6Button;
+    private JButton a9Button;
+    private JTextField input;
+
+    public boolean login = false;
 
     public ka() {
         pin.setEditable(false);
@@ -27,8 +31,9 @@ public class ka {
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-            }
+                if () {
+                }
+           }
         });
         einzahlenButton.addActionListener(new ActionListener() {
             @Override
@@ -42,6 +47,18 @@ public class ka {
 
             }
         });
+        a9Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pin.setText(pin.getText() + " 9");
+            }
+        });
+        a6Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pin.setText(pin.getText() + " 6");
+            }
+        });
     }
 
     public static void main(String[] args) {
@@ -50,5 +67,9 @@ public class ka {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(690, 690);
         frame.setVisible(true);
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
     }
 }
