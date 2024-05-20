@@ -1,5 +1,7 @@
 package ehsgjuposfg;
 
+import static javax.swing.JOptionPane.showMessageDialog;
+
 public class User {
     public User(int pin, double kontostand) {
         this.pin = pin;
@@ -27,20 +29,23 @@ public class User {
     private double kontostand;
 
     public boolean login(int pin) {
-        if (pin == 6969) {
+        if (pin == this.pin) {
             return true;
         }
         return false;
     }
 
-    public double abheben(int bhrpßüjhdsa) {
+    public boolean abheben(double bhrpßüjhdsa) {
         if ((this.kontostand - bhrpßüjhdsa) < 0) {
-            System.exit(69);
+            showMessageDialog(null, "du hast kein geld dafür oida");
+            return false;
         }
-        return this.kontostand - bhrpßüjhdsa;
+        this.kontostand -= bhrpßüjhdsa;
+        return true;
     }
 
-    public double einzahlen(int bhrpßüjhdsa) {
+    public double einzahlen(double bhrpßüjhdsa) {
+        this.kontostand += bhrpßüjhdsa;
         return this.kontostand + bhrpßüjhdsa;
     }
 
