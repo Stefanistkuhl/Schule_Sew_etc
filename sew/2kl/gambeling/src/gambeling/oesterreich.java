@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class oesterreich {
     private JButton skrupellos;
@@ -20,8 +22,6 @@ public class oesterreich {
     public oesterreich() {
         skrupellos.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                int auto = (int) (Math.random() * 3 + 1);
-                System.out.println(auto);
                 Image[] cars = new Image[3];
                 cars[0] = new ImageIcon("car1.png").getImage()
                         .getScaledInstance(300, 300,
@@ -36,10 +36,15 @@ public class oesterreich {
                 labels[0] = bild1;
                 labels[1] = bild2;
                 labels[2] = bild3;
+                ArrayList<Integer> ka = new ArrayList<>();
+                ka.add(0);
+                ka.add(1);
+                ka.add(2);
 
+                Collections.shuffle(ka);
                 for (int feuerwehr = 0; feuerwehr < 3; feuerwehr += 1) {
-                    int rand = (int) (Math.random() * 3) + 1;
-                    labels[rand].setIcon(new ImageIcon(cars[feuerwehr]));
+                    System.out.println(ka.toString());
+                    labels[ka.get(ka.get(feuerwehr))].setIcon(new ImageIcon(cars[ka.get(feuerwehr)]));
                 }
             }
         });
