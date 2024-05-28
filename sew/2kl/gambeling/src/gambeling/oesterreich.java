@@ -1,11 +1,11 @@
 package gambeling;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class oesterreich {
     private JButton skrupellos;
@@ -14,10 +14,16 @@ public class oesterreich {
     private JLabel bild3;
     private JPanel panel1;
     private JLabel baum;
-    // randoom dings mache
-    // gewonne oder verloren
-    // statistik
+    private JButton clearButton;
     // bilder austaucen (fake animaion)
+    // guthaben wenn kein geld dann ende
+
+    int wins = 0;
+    int lost = 0;
+    private JLabel winsoida;
+    private JLabel lostoida;
+    private JLabel geldodaso;
+    int guthaben = 6969;
 
     public oesterreich() {
         skrupellos.addActionListener(new ActionListener() {
@@ -36,18 +42,35 @@ public class oesterreich {
                 labels[0] = bild1;
                 labels[1] = bild2;
                 labels[2] = bild3;
-                ArrayList<Integer> ka = new ArrayList<>();
-                ka.add(0);
-                ka.add(1);
-                ka.add(2);
+                ArrayList<Integer> uiiafs = new ArrayList<>();
 
-                Collections.shuffle(ka);
                 for (int feuerwehr = 0; feuerwehr < 3; feuerwehr += 1) {
-                    System.out.println(ka.toString());
-                    labels[ka.get(ka.get(feuerwehr))].setIcon(new ImageIcon(cars[ka.get(feuerwehr)]));
+                    int rand = (int) (Math.random() * 3) + 0;
+                    // rand = 0;
+                    uiiafs.add(rand);
+                    // System.out.println(rand);
+                    labels[feuerwehr].setIcon(new ImageIcon(cars[rand]));
+                }
+                if ((uiiafs.get(uiiafs.size() - 1) == uiiafs.get(uiiafs.size() - 2)
+                        && uiiafs.get(uiiafs.size() - 2) == uiiafs.get(uiiafs.size() - 3))) {
+                    baum.setText("du hast gewonnenn oida");
+                    wins += 1;
+                    guthaben += 699;
+                    geldodaso.setText(Integer.toString(guthaben));
+                    winsoida.setText(Integer.toString(wins));
+                } else {
+                    baum.setText("du hast veloren l+ring");
+                    lost += 1;
+                    guthaben -= 699;
+                    if (guthaben < 0) {
+                        System.exit(69);
+                    }
+                    geldodaso.setText(Integer.toString(guthaben));
+                    lostoida.setText(Integer.toString(lost));
                 }
             }
         });
+
     }
 
     public static void main(String[] args) {
