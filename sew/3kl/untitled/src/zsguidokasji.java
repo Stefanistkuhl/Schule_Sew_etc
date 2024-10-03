@@ -19,7 +19,7 @@ public class zsguidokasji {
     ArrayList<ka> ysob = new ArrayList<ka>();
 
     public zsguidokasji() {
-        // area.setEditable(false);
+        area.setEditable(false);
         newbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -61,6 +61,8 @@ public class zsguidokasji {
         JFrame frame = new JFrame("ajfisahdgsduhgdsugh");
         frame.setContentPane((new zsguidokasji().panel1));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // frame.setSize(640,600);
+        frame.pack();
         frame.setVisible(true);
     }
 
