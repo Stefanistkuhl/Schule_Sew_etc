@@ -1,5 +1,5 @@
 public class Fahrrad extends Fahrzeug {
-    public boolean isHatklingel() {
+    protected boolean isHatklingel() {
         return hatklingel;
     }
 
@@ -9,15 +9,17 @@ public class Fahrrad extends Fahrzeug {
 
     private boolean hatklingel;
 
-    public Fahrrad(boolean hatklingel) {
+    public Fahrrad(double geschwindigkeit, boolean hatklingel) {
+        super(geschwindigkeit);
         this.hatklingel = hatklingel;
     }
 
+    @Override
     public void fahren() {
         if (this.hatklingel) {
-            System.out.println("Das Auto fährt " + getGeschwindigkeit() + " km/h und hat eine Klingel");
+            System.out.println("Das Auto fährt " + super.geschwindigkeit + " km/h und hat eine Klingel");
         } else {
-            System.out.println("Das Auto fährt " + getGeschwindigkeit() + " km/h und hat keine Klingel");
+            System.out.println("Das Auto fährt " + super.geschwindigkeit + " km/h und hat keine Klingel");
         }
     }
 }

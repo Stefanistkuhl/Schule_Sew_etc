@@ -10,12 +10,15 @@ public class Auto extends Fahrzeug {
 
     private int anzahlTüren;
 
-    public Auto(int anzahlTüren) {
+    public Auto(double geschwindigkeit, int anzahlTüren) {
+        super(geschwindigkeit);
         this.anzahlTüren = anzahlTüren;
     }
 
+    @Override
     public void fahren() {
-        System.out.println("Das Auto fährt " + getGeschwindigkeit() + " km/h und hat " + this.anzahlTüren + " Türen");
+        System.out.println(
+                "Das Auto fährt " + super.geschwindigkeit + " km/h und hat " + this.anzahlTüren + " Türen");
     }
 
 }

@@ -7,7 +7,11 @@ public class Fahrzeug {
         this.geschwindigkeit = geschwindigkeit;
     }
 
-    private double geschwindigkeit;
+    protected double geschwindigkeit;
+
+    public Fahrzeug(double geschwindigkeit) {
+        this.geschwindigkeit = geschwindigkeit;
+    }
 
     public void fahren() {
         System.out.println("Das Fahrzeug fähr mit " + getGeschwindigkeit() + " km/h");
