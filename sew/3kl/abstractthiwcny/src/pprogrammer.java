@@ -7,7 +7,7 @@ public class pprogrammer extends Emplyoee {
     private ArrayList<String> programminglangs = new ArrayList<>();
     private String project;
 
-    public pprogrammer(double hourlywage, int workedhours, ArrayList<String> programinglangs, String project,
+    public pprogrammer(double hourlydwage, int workedhours, ArrayList<String> programminglangs, String project,
             String name, int empleeNumber, String department) {
         super(empleeNumber, name, department);
         this.hourlydwage = hourlydwage;

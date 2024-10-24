@@ -3,7 +3,7 @@ public class intern extends Emplyoee {
     private String traninginsitute;
     private int duration;
 
-    public intern(double monthySalary, String traninginsitute, int duration, String name, int empleeNumber,
+    public intern(double monthlySalary, String traninginsitute, int duration, String name, int empleeNumber,
             String department) {
         super(empleeNumber, name, department);
         this.monthlySalary = monthlySalary;
