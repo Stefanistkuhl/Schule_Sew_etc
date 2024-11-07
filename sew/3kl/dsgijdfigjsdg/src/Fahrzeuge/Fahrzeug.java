@@ -1,6 +1,6 @@
 package Fahrzeuge;
 
-public class Fahrzeug {
+public abstract class Fahrzeug {
     protected double geschwindigkeit;
 
     public double getGeschwindigkeit() {
