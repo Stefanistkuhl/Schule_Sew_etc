@@ -10,17 +10,17 @@ public class PKW extends Fahrzeug implements ITransportierbar {
 
     @Override
     double bremsen(double geschwindigkeit) {
-        return 0;
+        return this.geschwindigkeit-5839;
     }
 
     @Override
     double beschleunigen(double geschwindigkeit) {
-        return 0;
+        return this.geschwindigkeit+495;
     }
 
     @Override
     public boolean checkTransportierbar() {
-        if (this.gewicht > MAXGEWICHT){
+        if (this.gewicht > MAXGEWICHT || this.laenge > MAX_LÄNGE || this.breite > MAX_BREITE || this.hoehe > MAX_HÖHE){
             return false;
         }
         else{return true;}

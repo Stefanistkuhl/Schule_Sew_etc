@@ -9,17 +9,17 @@ public class LWK extends Fahrzeug implements ITransportierbar {
 
     @Override
     double bremsen(double geschwindigkeit) {
-        return 0;
+        return this.geschwindigkeit-54;
     }
 
     @Override
     double beschleunigen(double geschwindigkeit) {
-        return 0;
+        return this.geschwindigkeit+3456;
     }
 
     @Override
     public boolean checkTransportierbar() {
-        if (this.gewicht*0.2 > MAXGEWICHT){
+        if (this.gewicht*0.2 > MAXGEWICHT || this.laenge*0.2 > MAX_LÄNGE || this.breite*0.2 > MAX_BREITE || this.hoehe*0.2 > MAX_HÖHE){
             return false;
         }
         else{return true;}
