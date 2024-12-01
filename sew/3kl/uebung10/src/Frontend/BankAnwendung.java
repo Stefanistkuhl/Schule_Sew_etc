@@ -1,11 +1,17 @@
 package Frontend;
 import Backend.*;
 
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 
+
 public class BankAnwendung {
+    public static final ArrayList<Konto> konten = new ArrayList<>();
+    public static final Scanner sc = new Scanner(System.in);
     public static void main(String[] args) throws IllegalAccessException {
-        Scanner sc = new Scanner(System.in);
         String eingbabe = "";
         while (true) {
             System.out.println("epic bank programm\n" +
@@ -18,44 +24,66 @@ public class BankAnwendung {
             if (eingbabe.equals("q")){
                 break;
             }
-            if (eingbabe.equals("c") || eingbabe.equals("d") || eingbabe.equals("w") || eingbabe.equals("s")){
-                eingbabe = "";
                 switch (eingbabe){
-                    case "c":
-                        createAccount();
-                        break;
-                    case "d":
-                        deposit();
-                        break;
-                    case "w":
-                        withdraw();
-                        break;
-                    case "s":
-                        showBalance();
-                        break;
+                    case "c" -> createAccount(konten);
+                    case "d" -> deposit();
+                    case "w" -> withdraw();
+                    case "s" -> showBalance();
+                    default -> System.out.println("please use a valid command");
                 }
-            }else {
-                eingbabe = "";
-                System.out.println("please use a valid command");
+
+        }
+    }
+    public static void createAccount(ArrayList<Konto>konten){
+        String accountNumber = "";
+        String input = "";
+        String name = "";
+        double dispoLimit = 0;
+        double zinssatz = 0;
+        System.out.println("---Account Creation---");
+        System.out.println("Account Owner Name:");
+        name = sc.nextLine();
+        System.out.println("Accountnumber:");
+        accountNumber = sc.nextLine();
+        while (true) {
+            System.out.println("Type of Account ([g]irokonto, [s]parkonto):");
+            input = sc.nextLine();
+            if (input.equals("g")) {
+                while (true) {
+                    dispoLimit = 0;
+                    System.out.println("Dispo-Limit:");
+                    try {
+                        dispoLimit = sc.nextDouble();
+                        break;
+                    } catch (InputMismatchException e) {
+                        sc.next();
+                        System.out.println("Please enter a valid number");
+                        break;
+                    }
+                }
+                Girokonto g = new Girokonto(name,accountNumber,dispoLimit);
+                konten.add(g);
+            } else if (input.equals("s")) {
+                while (true) {
+                    System.out.println("Dispo-Limit:");
+                    try {
+                        zinssatz = sc.nextDouble();
+                        break;
+                    } catch (InputMismatchException e) {
+                        sc.next();
+                        System.out.println("Please enter a valid number");
+                    }
+                }
+                Sparkonto s = new Sparkonto(name,accountNumber,zinssatz);
+                konten.add(s);
+            }else{
+                System.out.println("Please enter a valid option");
             }
 
         }
     }
-    public static void createAccount(){
-        String input = "";
-        Scanner sc = new Scanner(System.in);
-        System.out.println("\n Account Creation\n");
-        System.out.println("\nAccount Owner Name:");
-        System.out.println("\nAccountnumber:");
-        System.out.println("\nType of Account ([g]irokonto, 2 = [s]parkonto):");
-        if (input.equals("g")){
-            System.out.println("\nDispo-Limit");
-        }
-        if (input.equals("s")){
-            System.out.println("\nZinssatz");
-        }
-    }
     public static void deposit(){
+        System.out.println("Enter your account number to deposit to");
 
     }
     public static void withdraw(){
