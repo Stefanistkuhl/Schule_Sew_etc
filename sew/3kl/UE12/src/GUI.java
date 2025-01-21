@@ -1,6 +1,12 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileWriter;
+import java.io.StringWriter;
+import java.io.Writer;
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class GUI {
     private JPanel panel1;
@@ -12,27 +18,49 @@ public class GUI {
     private JTextField textField3;
     private JButton saveButton;
     private JTextArea output;
-
+    ArrayList<Product>a=new ArrayList<>();
     public GUI() {
         dropdown.setModel(new DefaultComboBoxModel(Category.values()));
         loadButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
+                Product product = ProductManager.loadProduct();
+                System.out.println(product.toString());
+                output.setText(product.toString());
             }
         });
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                for(int i =0;i<Category.values().length;i++){
-                    output.append(Category.values()[i].toString()+"\n");
+                StringBuilder result = new StringBuilder();
+                Pattern pattern = Pattern.compile("name='(.*?)'");
+
+                for (Object item : a) {
+                    Matcher matcher = pattern.matcher(item.toString());
+
+                    if (matcher.find()) {
+                        String name = matcher.group(1);
+                        if (name.toLowerCase().contains(nameInput.getText().toLowerCase())) {
+                            result.append(item).append("\n");
+                        }
+                    }
                 }
+
+                output.setText(result.toString());
             }
         });
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
+                String name = nameInput.getText();
+                int price = Integer.parseInt(priceInput.getText());
+                Category category = (Category) dropdown.getSelectedItem();
+                Product product = new Product(name,price,category);
+                System.out.println(category);
+                a.add(product);
+                output.setText(product.toString());
+                FileWriter fw = null;
+                ProductManager.saveProduct(a);
             }
         });
     }

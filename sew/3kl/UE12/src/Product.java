@@ -30,11 +30,17 @@ public class Product {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", category=" + category +
+                '}'+"\n";
+    }
+
     public void setPrice(double price) {
         this.price = price;
     }
 
-    public String toString() {
-        return name + " " + price;
-    }
 }

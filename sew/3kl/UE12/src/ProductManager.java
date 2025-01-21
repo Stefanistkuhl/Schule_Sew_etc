@@ -4,14 +4,22 @@ import com.google.gson.GsonBuilder;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ProductManager {
     private static final String FILE_PATH = "product.json";
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-    public static void saveProduct(Product product) {
+    public static void saveProduct(ArrayList<Product> product) {
+        ArrayList<ArrayList<Product>> products = new ArrayList<>();
+        if (products == null) {
+            products = new ArrayList<>();
+        }
+
+        products.add(product);
+
         try (FileWriter writer = new FileWriter(FILE_PATH)) {
-            gson.toJson(product, writer);
+            gson.toJson(products, writer);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -26,4 +34,3 @@ public class ProductManager {
         }
     }
 }
-
