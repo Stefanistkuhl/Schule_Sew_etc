@@ -24,7 +24,8 @@ public class GUI {
         loadButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                Product product = ProductManager.loadProduct();
+                ProductManager  productManager = new ProductManager(textField3.getText());
+                Product product = productManager.loadProduct();
                 System.out.println(product.toString());
                 output.setText(product.toString());
             }
@@ -52,15 +53,16 @@ public class GUI {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                ProductManager  productManager = new ProductManager(textField3.getText());
                 String name = nameInput.getText();
                 int price = Integer.parseInt(priceInput.getText());
                 Category category = (Category) dropdown.getSelectedItem();
                 Product product = new Product(name,price,category);
-                System.out.println(category);
+                //System.out.println(category);
                 a.add(product);
                 output.setText(product.toString());
                 FileWriter fw = null;
-                ProductManager.saveProduct(a);
+                productManager.saveProduct(a);
             }
         });
     }
