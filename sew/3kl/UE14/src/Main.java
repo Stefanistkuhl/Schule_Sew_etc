@@ -1,3 +1,5 @@
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -265,8 +267,17 @@ public class Main {
      *   Erwartete Ausgabe: true
      */
     public static boolean ue7PalindromeChecker(String input) {
-        // TODO: Implementiere die Logik
-        return false;
+        String cleanedInput = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+        int left = 0;
+        int right = cleanedInput.length() - 1;
+        while (left < right) {
+            if (cleanedInput.charAt(left) != cleanedInput.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
     }
 
     /**
@@ -276,8 +287,14 @@ public class Main {
      *   Erwartete Ausgabe: "I am Learning Java!"
      */
     public static String ue8DecodeSecretMessage(String secretMessage) {
-        // TODO: Implementiere die Logik
-        return "ue8DecodeSecretMessage: Funktion noch nicht implementiert.";
+        List arr = Arrays.asList(secretMessage.toCharArray());
+        for (int i = 0; i < arr.size(); i++) {
+            if (i%2==0) {
+                arr.remove(i);
+            }
+        }
+        System.out.println(arr.toString());
+        return secretMessage;
     }
 
     /**
