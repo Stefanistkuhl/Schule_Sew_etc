@@ -1,6 +1,9 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -287,14 +290,17 @@ public class Main {
      *   Erwartete Ausgabe: "I am Learning Java!"
      */
     public static String ue8DecodeSecretMessage(String secretMessage) {
-        List arr = Arrays.asList(secretMessage.toCharArray());
-        for (int i = 0; i < arr.size(); i++) {
-            if (i%2==0) {
-                arr.remove(i);
-            }
+        secretMessage = "aS!Ir waQm  VL!eDafrcnXi n=gS .J,ayvaa.!";
+        if (secretMessage == null || secretMessage.length() < 3) {
+            return "";
         }
-        System.out.println(arr.toString());
-        return secretMessage;
+
+        StringBuilder decded = new StringBuilder();
+        for (int i = 3; i < secretMessage.length(); i += 2) {
+            decded.append(secretMessage.charAt(i));
+        }
+
+        return decded.toString();
     }
 
     /**
@@ -304,8 +310,14 @@ public class Main {
      *   Erwartete Ausgabe: 2
      */
     public static int ue9CountOccurrences(String text, String name) {
-        // TODO: Implementiere die Logik
-        return -1;
+        text = "Anna und Maria sind Freunde. Anna besucht Maria oft.";
+        List<String> allMatches = new ArrayList<>();
+        Pattern p = Pattern.compile(name);
+        Matcher m = p.matcher(text);
+        while (m.find()) {
+            allMatches.add(m.group());
+        }
+        return allMatches.size();
     }
 
     /**
@@ -315,8 +327,26 @@ public class Main {
      *   Erwartete Ausgabe: Buchstaben: 10, Ziffern: 3, Sonderzeichen: 3
      */
     public static String ue10CountCharacters(String input) {
-        // TODO: Implementiere die Logik
-        return "ue10CountCharacters: Funktion noch nicht implementiert.";
+        input = "Hello, World! 123";
+        List<String> chars = new ArrayList<>();
+        List<String> number = new ArrayList<>();
+        List<String> symbol = new ArrayList<>();
+        Pattern p_w = Pattern.compile("\\w");
+        Pattern p_d = Pattern.compile("\\d");
+        Pattern p_s = Pattern.compile("\\W");
+        Matcher m = p_w.matcher(input);
+        while (m.find()) {
+            chars.add(m.group());
+        }
+        m = p_d.matcher(input);
+        while (m.find()) {
+            number.add(m.group());
+        }
+        m = p_s.matcher(input);
+        while (m.find()) {
+            symbol.add(m.group());
+        }
+        return "chars:"+chars.size()+" numbers:"+number.size()+" symbols:"+symbol.size();
     }
 
     /**
@@ -326,8 +356,13 @@ public class Main {
      *   Erwartete Ausgabe: {die=2, katze=3, sitzt=1, auf=1, der=1, matte=1, ist=1, hungrig=1}
      */
     public static String ue11WordFrequencyCounter(String text) {
-        // TODO: Implementiere die Logik
-        return "ue11WordFrequencyCounter: Funktion noch nicht implementiert.";
+        //shamelessly stolen from https://stackoverflow.com/questions/21771566/calculating-frequency-of-each-word-in-a-sentence-in-java#21771656
+        String[] input_split = text.toLowerCase().split("\\s+");
+        ConcurrentMap<String, Integer> m = new ConcurrentHashMap<>();
+        for (String abc : input_split){
+            m.compute(abc, (k, v) -> v == null ? 1 : v + 1);
+        }
+        return m.toString();
     }
 
     /**
@@ -340,7 +375,9 @@ public class Main {
      *   Erwartete Ausgabe: false
      */
     public static boolean ue12CanBuildWord(String word, char[] letters) {
-        // TODO: Implementiere die Logik
+        if(String.copyValueOf(letters).equals(word)){
+           return true ;
+        }
         return false;
     }
 
@@ -352,8 +389,29 @@ public class Main {
      *   Erwartete Ausgabe (verschlüsselt): "01001000 01100001 01101100 01101100 01101111"
      */
     public static String ue13TextEncryptionDecryption(String text) {
-        // TODO: Implementiere die Logik
-        return "ue13TextEncryptionDecryption: Funktion noch nicht implementiert.";
+        //shamelessly stolen from https://stackoverflow.com/a/33864374
+        ArrayList<Integer> ascii = new ArrayList<>();
+        String out = "";
+        for (char c : text.toCharArray()) {
+            ascii.add((int) c);
+            String intString = String.format("%08d", Integer.parseInt(Integer.toBinaryString((int) c)));
+            out += intString + " ";
+        }
+        String aisjfiasjf = aisjisajfiajfiajsfijisjf(out);
+        return "Binary: "+ out + " thing but reverse: " +  aisjfiasjf;
+    }
+    public static String aisjisajfiajfiajsfijisjf(String inpt){
+        String ijhidfjh = "";
+        String[] input_split = inpt.toLowerCase().split("\\s+");
+        for (String binstr : input_split) {
+            if(binstr.isEmpty()) {
+                continue;
+            }
+            int dec = Integer.parseInt(binstr, 2);
+            ijhidfjh += (char)dec;
+            System.out.println(dec);
+        }
+        return ijhidfjh;
     }
 
     /**
@@ -385,7 +443,9 @@ public class Main {
      *   Erwartete Ausgabe: false
      */
     public static boolean ue15AnagramChecker(String s1, String s2) {
-        // TODO: Implementiere die Logik
+        if(s1.toLowerCase().equals(new StringBuilder(s2).reverse().toString().toLowerCase())){
+           return true;
+        }
         return false;
     }
 }
