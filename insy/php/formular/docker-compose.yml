@@ -1,10 +1,11 @@
 services:
-  db:
+  mariadb:
     image: mariadb:latest
     restart: no
+    container_name: mariadb
     environment:
       MYSQL_ROOT_PASSWORD: admin
-      MYSQL_DATABASE: something
+      MYSQL_DATABASE: viennabybike
     volumes:
       # - db_data:/var/lib/mysql
       - ./src/sql/script.sql:/docker-entrypoint-initdb.d/1.sql

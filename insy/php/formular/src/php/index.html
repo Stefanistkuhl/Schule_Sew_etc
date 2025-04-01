@@ -1,158 +1,187 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>aisdiafjiajfiasjfiasjfij</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            /* CSS Variables for Light and Dark Mode */
+            :root {
+                /* Rose Pine Dawn */
+                --bg-color: #faf4ed;
+                --text-color: #575279;
+                --input-bg-color: #fff;
+                --input-text-color: #575279;
+                --button-bg-color: #907aa9;
+                --button-text-color: #faf4ed;
+            }
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>aisdiafjiajfiasjfiasjfij</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-	<style>
-		/* CSS Variables for Light and Dark Mode */
-		:root {
-			/* Rose Pine Dawn */
-			--bg-color: #faf4ed;
-			--text-color: #575279;
-			--input-bg-color: #fff;
-			--input-text-color: #575279;
-			--button-bg-color: #907aa9;
-			--button-text-color: #faf4ed;
-		}
+            body {
+                font-family: "Roboto", sans-serif;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                margin: 0;
+                transition:
+                    background-color 0.3s,
+                    color 0.3s;
+            }
 
-		body {
-			font-family: 'Roboto', sans-serif;
-			background-color: var(--bg-color);
-			color: var(--text-color);
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			min-height: 100vh;
-			margin: 0;
-			transition: background-color 0.3s, color 0.3s;
-		}
+            /* Moon Theme Styles */
+            body.moon-mode {
+                --bg-color: #232136;
+                --text-color: #e0def4;
+                --input-bg-color: #44415a;
+                --input-text-color: #e0def4;
+                --button-bg-color: #c4a7e7;
+                --button-text-color: #232136;
+            }
 
-		 /* Moon Theme Styles */
-		body.moon-mode {
-			--bg-color: #232136;
-			--text-color: #e0def4;
-			--input-bg-color: #44415a;
-			--input-text-color: #e0def4;
-			--button-bg-color: #c4a7e7;
-			--button-text-color: #232136;
-		}
+            form {
+                text-align: center;
+                border-radius: 20px;
+                padding: 20px;
+                background-color: var(--bg-color);
+            }
 
-		form {
-			text-align: center;
-			border-radius: 20px;
-			padding: 20px;
-			background-color: var(--bg-color);
-		}
+            label {
+                display: block;
+                margin-top: 10px;
+                color: var(--text-color);
+            }
 
-		label {
-			display: block;
-			margin-top: 10px;
-			color: var(--text-color);
-		}
+            input[type="text"],
+            input[type="email"],
+            input[type="date"] {
+                width: 200px;
+                margin-bottom: 10px;
+                background-color: var(--input-bg-color);
+                color: var(--input-text-color);
+                border: 1px solid #ccc;
+                padding: 5px;
+                border-radius: 10px;
+            }
 
-		input[type="text"],
-		input[type="email"],
-		input[type="date"] {
-			width: 200px;
-			margin-bottom: 10px;
-			background-color: var(--input-bg-color);
-			color: var(--input-text-color);
-			border: 1px solid #ccc;
-			padding: 5px;
-			border-radius: 10px;
-		}
+            #id_type_group {
+                margin-top: 10px;
+                color: var(--text-color);
+            }
 
-		#id_type_group {
-			margin-top: 10px;
-			color: var(--text-color);
-		}
+            #id_type_group label {
+                display: inline;
+                margin-left: 5px;
+            }
 
-		#id_type_group label {
-			display: inline;
-			margin-left: 5px;
-		}
+            #id_type_group input[type="radio"] {
+                margin-right: 5px;
+            }
 
-		#id_type_group input[type="radio"] {
-			margin-right: 5px;
-		}
+            button {
+                background-color: var(--button-bg-color);
+                color: var(--button-text-color);
+                padding: 10px 15px;
+                border: none;
+                cursor: pointer;
+                border-radius: 20px;
+                transition: background-color 0.3s;
+            }
 
-		button {
-			background-color: var(--button-bg-color);
-			color: var(--button-text-color);
-			padding: 10px 15px;
-			border: none;
-			cursor: pointer;
-			border-radius: 20px;
-			transition: background-color 0.3s;
-		}
+            button:hover {
+                background-color: #7a698d;
+            }
 
-		button:hover {
-			background-color: #7a698d;
-		}
+            #theme-toggle-container {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+        </style>
+    </head>
 
-		#theme-toggle-container {
-			position: absolute;
-			top: 10px;
-			right: 10px;
-		}
-	</style>
-</head>
+    <body>
+        <div id="theme-toggle-container">
+            <button type="button" onclick="toggleTheme()">Toggle Theme</button>
+        </div>
+        <form method="post" action="signup.php">
+            <label for="firstname">First Name</label>
+            <input type="text" id="firstname" name="firstname" /><br />
 
-<body>
-	<div id="theme-toggle-container">
-		<button type="button" onclick="toggleTheme()">Toggle Theme</button>
-	</div>
-	<form method="post" action="signup.php">
-		<label for="firstname">First Name</label>
-		<input type="text" id="firstname" name="firstname"><br>
+            <label for="lastname">Last Name</label>
+            <input type="text" id="lastname" name="lastname" /><br />
 
-		<label for="lastname">Last Name</label>
-		<input type="text" id="lastname" name="lastname"><br>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" /><br />
 
-		<label for="email">Email</label>
-		<input type="email" id="email" name="email"><br>
+            <label for="street">Street</label>
+            <input type="text" id="street" name="street" /><br />
 
-		<label for="street">Street</label>
-		<input type="text" id="street" name="street"><br>
+            <label for="number">Number</label>
+            <input type="text" id="number" name="number" /><br />
 
-		<label for="number">Number</label>
-		<input type="text" id="number" name="number"><br>
+            <label for="postal_code">Postal Code</label>
+            <input type="text" id="postal_code" name="postal_code" /><br />
 
-		<label for="postal_code">Postal Code</label>
-		<input type="text" id="postal_code" name="postal_code"><br>
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" /><br />
 
-		<label for="city">City</label>
-		<input type="text" id="city" name="city"><br>
+            <label for="phone">Phone</label>
+            <input type="text" id="phone" name="phone" /><br />
 
-		<label for="phone">Phone</label>
-		<input type="text" id="phone" name="phone"><br>
+            <label for="date_of_birth">Date of Birth</label>
+            <input
+                type="text"
+                id="date_of_birth"
+                name="date_of_birth"
+                placeholder="dd mm yyyy"
+            /><br />
 
-		<label for="date_of_birth">Date of Birth</label>
-		<input type="text" id="date_of_birth" name="date_of_birth" placeholder="dd mm yyyy"><br>
+            <label for="id_number"
+                >ID Number (Reisepass/PA/Führerschein Nr.)</label
+            >
+            <input type="text" id="id_number" name="id_number" required /><br />
 
-		<div id="id_type_group">
-			<input type="radio" id="fuehrerschein" name="id_type" value="fuehrerschein">
-			<label for="fuehrerschein">Führerschein</label><br>
+            <div id="id_type_group">
+                <input
+                    type="radio"
+                    id="fuehrerschein"
+                    name="id_type"
+                    value="fuehrerschein"
+                />
+                <label for="fuehrerschein">Führerschein</label><br />
 
-			<input type="radio" id="reisepass" name="id_type" value="reisepass">
-			<label for="reisepass">Reisepass</label><br>
+                <input
+                    type="radio"
+                    id="reisepass"
+                    name="id_type"
+                    value="reisepass"
+                />
+                <label for="reisepass">Reisepass</label><br />
 
-			<input type="radio" id="personalausweis" name="id_type" value="personalausweis">
-			<label for="personalausweis">Personalausweis</label><br>
-		</div><br>
+                <input
+                    type="radio"
+                    id="personalausweis"
+                    name="id_type"
+                    value="personalausweis"
+                />
+                <label for="personalausweis">Personalausweis</label><br />
+            </div>
+            <br />
 
-		<button type="submit">Sign Up</button>
-	</form>
-	<script>
-		function toggleTheme() {
-			document.body.classList.toggle('moon-mode');
-		}
-	</script>
-</body>
-
+            <button type="submit">Sign Up</button>
+        </form>
+        <script>
+            function toggleTheme() {
+                document.body.classList.toggle("moon-mode");
+            }
+        </script>
+    </body>
 </html>
