@@ -4,7 +4,7 @@
 # This base stage ensures all other stages are using the same base image
 # and provides common configuration for all stages, such as the working dir.
 ###################################################
-FROM node:latest AS base
+FROM node:22 AS base
 WORKDIR /usr/local/app
 
 ################## CLIENT STAGES ##################
@@ -17,7 +17,7 @@ WORKDIR /usr/local/app
 ###################################################
 FROM base AS client-base
 COPY client/package.json client/package-lock.json ./
-RUN npm ci
+RUN npm install
 COPY client/.eslintrc.cjs client/index.html client/vite.config.js ./
 COPY client/public ./public
 COPY client/src ./src
@@ -55,7 +55,7 @@ RUN npm run build
 ###################################################
 FROM base AS backend-dev
 COPY backend/package.json backend/package-lock.json ./
-RUN npm ci
+RUN npm install
 COPY backend/spec ./spec
 COPY backend/src ./src
 CMD ["npm", "run", "dev"]

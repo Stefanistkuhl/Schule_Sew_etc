@@ -1,0 +1,15 @@
+services:
+  db:
+    image: mariadb:latest
+    restart: no
+    container_name: db
+    environment:
+      MARIADB_ROOT_PASSWORD: password
+      # MARIADB_DATABASE: thing
+    #volumes:
+    # - db_data:/var/lib/mysql
+    #- ./script.sql:/docker-entrypoint-initdb.d/1.sql
+    ports:
+      - "3306:3306"
+volumes:
+  db_data:
