@@ -1,0 +1,22 @@
+Kunden mit Bezirk:
+select vorname, nachname plz from kunde where plz = 1210;
+select vorname, nachname plz from kunde where plz in (1210, 1220, 1223);
+select vorname, nachname plz from kunde where plz not in (1210, 1220, 1223);
+liste aller bezirke die es gibt:
+select distinct plz from kunde;
+wv kunden mit plz 1220:
+select count(plz) from kunde where plz = 1220;
+select plz, count(*) as count from kunde group by plz order by count desc;
+filme mit regie:
+select titel, land, regie.nachname from filme join regie on filme.rid=regie.rid;
+liste mit allen medien,mediumtyp, tietel mit den film (tietel und land) und regisseur (make it a view)
+create view medien_tietel as select mid, medientyp.typ, filme.titel, filme.land, regie.vorname, regie.nachname from medien join medientyp on medien.mtyp=medientyp.mtid join filme on medien.fid=filme.fid join regie on filme.rid = regie.rid;
+select * from medien_tietel;
+select * from medien_titel where nachname="Kubrick";
+
+variablen erstellen:
+set @today:=current_date();
+set @intwoweeks:=adddate(@today, interval 14 day);
+set @next:=(select max(anr)+1 from ausleihe);
+insert mit variablen:
+insert into ausleihe values(@next, @today, @intwoweeks, 2, 25, 'e');

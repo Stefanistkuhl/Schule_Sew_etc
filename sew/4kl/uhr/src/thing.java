@@ -70,6 +70,7 @@ public class thing {
 			g2.fillRect(0, 0, width, height);
 			g2.setColor(Color.LIGHT_GRAY);
 			g2.setStroke(new BasicStroke(1.2f));
+            //circle outline
 			g2.drawOval(centerX - radius, centerY - radius, radius * 2, radius * 2);
 
 			drawTickMarks(g2, centerX, centerY, size);
@@ -80,12 +81,13 @@ public class thing {
 
 			g2.setColor(Color.DARK_GRAY);
 			g2.setStroke(new BasicStroke(1f));
-			g2.drawOval(centerX - 2, centerY - 2, 4, 4);
+            // thing in the center
+			g2.drawRect(centerX - 2, centerY - 2, 4, 4);
 			g2.dispose();
 		}
 
 		private void drawTickMarks(Graphics2D g2, int centerX, int centerY, int r) {
-			for (int i = 0; i < 60; i++) {
+			for (int i = 0; i < 600; i++) {
 				boolean major = (i % 5 == 0);
 				int tickLen = major ? 12 : 6;
 				float angle = 90 - (i * 6f);
