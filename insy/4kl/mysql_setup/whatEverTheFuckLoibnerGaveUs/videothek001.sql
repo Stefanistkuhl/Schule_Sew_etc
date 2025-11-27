@@ -205,4 +205,3 @@ INSERT INTO ausleihe (anr, ausdat, rueckdat, kdnr, mid, status) VALUES (10004, '
 INSERT INTO ausleihe (anr, ausdat, rueckdat, kdnr, mid, status) VALUES (10005, '2023-11-01', '2023-12-01', 2, 5, 'e');
 INSERT INTO ausleihe (anr, ausdat, rueckdat, kdnr, mid, status) VALUES (10006, '2023-11-01', '2023-12-01', 3, 6, 'e');
 INSERT INTO ausleihe (anr, ausdat, rueckdat, kdnr, mid, status) VALUES (10007, '2023-11-01', '2023-12-01', 7, 6, 'e');
-
